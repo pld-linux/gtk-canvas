@@ -62,7 +62,7 @@ Statyczna biblioteka gtk-canvas.
 %patch1 -p1
 
 # GTK_X_CHECKS
-tail +1307 acinclude.m4 | head -55 > acinclude.m4.tmp
+tail -n +1307 acinclude.m4 | head -n 55 > acinclude.m4.tmp
 mv -f acinclude.m4.tmp acinclude.m4
 
 # avoid including these (use system libart_lgpl2)
