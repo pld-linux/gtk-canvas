@@ -1,0 +1,95 @@
+--- gtk-canvas-0.1.1/configure.in.orig	2002-11-18 11:09:42.000000000 +0100
++++ gtk-canvas-0.1.1/configure.in	2003-07-15 20:10:30.000000000 +0200
+@@ -9,8 +9,6 @@
+ 
+ AM_INIT_AUTOMAKE(gtk-canvas, 0.1.1)
+ 
+-AM_ACLOCAL_INCLUDE(macros)
+-
+ AC_ISC_POSIX
+ AC_PROG_CC
+ AC_STDC_HEADERS
+@@ -71,9 +69,6 @@
+ fi
+ AC_SUBST(REBUILD)
+ 
+-dnl Utility conditional
+-AM_CONDITIONAL(FALSE, test x = y)
+-
+ AC_ARG_ENABLE(debug, [  --enable-debug turn on debugging [default=no]], enable_debug="$enableval", enable_debug=no)
+ 
+ 
+@@ -114,6 +114,7 @@
+ AC_CHECK_HEADER(dlfcn.h, AC_DEFINE(HAVE_DLFCN_H))
+ 
+ dnl And workaround for a Autoconf 2.4 bug:
++AC_CHECK_FUNC(grantpt)
+ if test x$ac_cv_func_grantpt = xyes; then
+     :
+ else
+@@ -123,14 +123,14 @@
+ 
+ dnl Test for libz
+ AC_CHECK_LIB(z, inflate,
+-  AC_CHECK_HEADER(zlib.h,
+-    Z_LIBS="-lz";  AC_DEFINE(HAVE_LIBZ)))
++  [AC_CHECK_HEADER(zlib.h,
++    [Z_LIBS="-lz";  AC_DEFINE(HAVE_LIBZ)])])
+ AC_CHECK_LIB(z, compress, , 
+-   AC_MSG_ERROR([[
++   [AC_MSG_ERROR([[
+ *** Incorrect libz version found.  Please make sure you do not have
+ *** an outdated libz.a or libz.so hiding in your X11 distribution or
+ *** elsewhere on your system.  Versions of libz with the "compress" and
+-*** "uncompress" symbols are sufficiently recent to build GNOME.]]))
++*** "uncompress" symbols are sufficiently recent to build GNOME.]])])
+ 
+ dnl Test for libjpeg
+ AC_CHECK_LIB(jpeg, jpeg_destroy_decompress,
+@@ -156,31 +156,31 @@
+ 
+ dnl Test for libtiff
+ AC_CHECK_LIB(tiff, TIFFReadScanline,
+-  AC_CHECK_HEADER(tiffio.h,
+-    TIFF_LIBS="-ltiff"; AC_DEFINE(HAVE_LIBTIFF)),
+-  AC_CHECK_LIB(tiff, TIFFWriteScanline,
+-    AC_CHECK_HEADER(tiffio.h,
+-      TIFF_LIBS="-ltiff $JPEG_LIBS $Z_LIBS"; AC_DEFINE(HAVE_LIBTIFF)),
+-    AC_CHECK_LIB(tiff34, TIFFFlushData,
+-      AC_CHECK_HEADER(tiffio.h,
+-        TIFF_LIBS="-ltiff34 $JPEG_LIBS $Z_LIBS"; AC_DEFINE(HAVE_LIBTIFF)),,
+-$JPEG_LIBS $Z_LIBS -lm), $JPEG_LIBS $Z_LIBS -lm), -lm)
++  [AC_CHECK_HEADER(tiffio.h,
++    TIFF_LIBS="-ltiff"; AC_DEFINE(HAVE_LIBTIFF))],
++  [AC_CHECK_LIB(tiff, TIFFWriteScanline,
++    [AC_CHECK_HEADER(tiffio.h,
++      TIFF_LIBS="-ltiff $JPEG_LIBS $Z_LIBS"; AC_DEFINE(HAVE_LIBTIFF))],
++    [AC_CHECK_LIB(tiff34, TIFFFlushData,
++      [AC_CHECK_HEADER(tiffio.h,
++        TIFF_LIBS="-ltiff34 $JPEG_LIBS $Z_LIBS"; AC_DEFINE(HAVE_LIBTIFF))],,
++$JPEG_LIBS $Z_LIBS -lm)], $JPEG_LIBS $Z_LIBS -lm)], -lm)
+ 
+ dnl Test for libgif
+ AC_CHECK_LIB(gif, DGifOpenFileName,
+-  AC_CHECK_HEADER(gif_lib.h,
+-    GIF_LIBS="-lgif"; AC_DEFINE(HAVE_LIBGIF)),,$GTK_LIBS)
++  [AC_CHECK_HEADER(gif_lib.h,
++    GIF_LIBS="-lgif"; AC_DEFINE(HAVE_LIBGIF))],,$GTK_LIBS)
+ 
+ dnl Test for libungif
+ AC_CHECK_LIB(ungif, DGifOpenFileName,
+-  AC_CHECK_HEADER(gif_lib.h,
+-    GIF_LIBS="-lungif"; AC_DEFINE(HAVE_LIBGIF)),,$GTK_LIBS)
++  [AC_CHECK_HEADER(gif_lib.h,
++    GIF_LIBS="-lungif"; AC_DEFINE(HAVE_LIBGIF))],,$GTK_LIBS)
+ 
+ dnl Test for libpng
+ AC_CHECK_LIB(png, png_read_info,
+-  AC_CHECK_HEADER(png.h,
++  [AC_CHECK_HEADER(png.h,
+     png_ok=yes,
+-    png_ok=no),,$Z_LIBS -lm)
++    png_ok=no)],,$Z_LIBS -lm)
+ if test "$png_ok" = yes; then
+   AC_MSG_CHECKING([for png_structp in png.h])
+   AC_TRY_COMPILE([#include <png.h>],
