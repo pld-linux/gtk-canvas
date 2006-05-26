@@ -12,6 +12,7 @@ Patch1:		%{name}-libart_lgpl2.patch
 URL:		http://www.atai.org/gtk-canvas/
 BuildRequires:	autoconf
 BuildRequires:	automake
+BuildRequires:	giflib-devel
 BuildRequires:	gtk+-devel >= 1.2.0
 BuildRequires:	imlib-devel >= 1.9
 BuildRequires:	libart_lgpl-devel >= 2.3
@@ -19,7 +20,6 @@ BuildRequires:	libjpeg-devel
 BuildRequires:	libpng-devel
 BuildRequires:	libtiff-devel
 BuildRequires:	libtool
-BuildRequires:	libungif-devel
 BuildRequires:	pkgconfig
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
