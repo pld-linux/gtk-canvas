@@ -36,7 +36,7 @@ GtkCanvas.
 Summary:	Header files for gtk-canvas library
 Summary(pl):	Pliki nag³ówkowe biblioteki gtk-canvas
 Group:		X11/Development/Libraries
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{version}-%{release}
 
 %description devel
 Header files for gtk-canvas library.
@@ -48,7 +48,7 @@ Pliki nag³ówkowe biblioteki gtk-canvas.
 Summary:	Static gtk-canvas library
 Summary(pl):	Statyczna biblioteka gtk-canvas
 Group:		X11/Development/Libraries
-Requires:	%{name}-devel = %{version}
+Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 Static gtk-canvas library.
