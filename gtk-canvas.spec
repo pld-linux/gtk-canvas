@@ -1,5 +1,5 @@
 Summary:	GtkCanvas widget - Tk-like canvas widget for Gtk+
-Summary(pl):	GtkCanvas - widget canvas w stylu Tk dla Gtk+
+Summary(pl.UTF-8):   GtkCanvas - widget canvas w stylu Tk dla Gtk+
 Name:		gtk-canvas
 Version:	0.1.1
 Release:	1
@@ -27,33 +27,33 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 This is a straight port of the GNOME Canvas from the stable gnome-libs
 1.2.4 back to gtk+ 1.2. The widget is called GtkCanvas.
 
-%description -l pl
-Ten pakiet jest bezpo∂rednim portem widgetu GNOME Canvas ze stabilnego
-pakietu gnome-libs 1.2.4 z powrotem do gtk+ 1.2. Widget nazywa siÍ
+%description -l pl.UTF-8
+Ten pakiet jest bezpo≈õrednim portem widgetu GNOME Canvas ze stabilnego
+pakietu gnome-libs 1.2.4 z powrotem do gtk+ 1.2. Widget nazywa siƒô
 GtkCanvas.
 
 %package devel
 Summary:	Header files for gtk-canvas library
-Summary(pl):	Pliki nag≥Ûwkowe biblioteki gtk-canvas
+Summary(pl.UTF-8):   Pliki nag≈Ç√≥wkowe biblioteki gtk-canvas
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 
 %description devel
 Header files for gtk-canvas library.
 
-%description devel -l pl
-Pliki nag≥Ûwkowe biblioteki gtk-canvas.
+%description devel -l pl.UTF-8
+Pliki nag≈Ç√≥wkowe biblioteki gtk-canvas.
 
 %package static
 Summary:	Static gtk-canvas library
-Summary(pl):	Statyczna biblioteka gtk-canvas
+Summary(pl.UTF-8):   Statyczna biblioteka gtk-canvas
 Group:		X11/Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 Static gtk-canvas library.
 
-%description static -l pl
+%description static -l pl.UTF-8
 Statyczna biblioteka gtk-canvas.
 
 %prep
