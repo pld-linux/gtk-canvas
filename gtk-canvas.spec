@@ -1,5 +1,5 @@
 Summary:	GtkCanvas widget - Tk-like canvas widget for Gtk+
-Summary(pl.UTF-8):   GtkCanvas - widget canvas w stylu Tk dla Gtk+
+Summary(pl.UTF-8):	GtkCanvas - widget canvas w stylu Tk dla Gtk+
 Name:		gtk-canvas
 Version:	0.1.1
 Release:	1
@@ -34,7 +34,7 @@ GtkCanvas.
 
 %package devel
 Summary:	Header files for gtk-canvas library
-Summary(pl.UTF-8):   Pliki nagłówkowe biblioteki gtk-canvas
+Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki gtk-canvas
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 
@@ -46,7 +46,7 @@ Pliki nagłówkowe biblioteki gtk-canvas.
 
 %package static
 Summary:	Static gtk-canvas library
-Summary(pl.UTF-8):   Statyczna biblioteka gtk-canvas
+Summary(pl.UTF-8):	Statyczna biblioteka gtk-canvas
 Group:		X11/Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
